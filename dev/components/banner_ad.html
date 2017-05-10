@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>GSAP animation</title>
+    <style type="text/css">
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+        body {
+            padding: 10px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        a#myAdLink {
+            display: inline-block;
+            background-color: #2480d6;
+        }
+
+        #myAd {
+            width: 650px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #myAd .myAd_img {
+            position: absolute;
+            background: url("graphics.png") no-repeat 0 0;
+        }
+
+        #myAd #myAd_cloud {
+            width: inherit;
+            height: inherit;
+            /* padding: 0 */
+            top: 0;
+            left: 0;
+        }
+
+        #myAd #myAd_photo {
+            width: inherit;
+            height: 143px;
+            /* background-position: posX posY */
+            background-position: 0 -325px;
+            bottom: 0;
+            left: 0;
+        }
+
+        #myAd #myAd_txt1,
+        #myAd #myAd_txt2 {
+            text-align: center;
+            position: absolute;
+            width: inherit;
+            font-size: 40px;
+            top: 0;
+            left: 0;
+            text-transform: uppercase;
+            text-shadow: 0 3px 3px rgba(0, 0, 102, .5);
+        }
+        #myAd #myAd_marker{
+            width: 60px;
+            height: 95px;
+            background-position: -243px -230px;
+            top:90px;
+            left: 290px;
+        }
+        #myAd #myAd_shadow{
+            width: 35px;
+            height: 16px;
+            background-position: -311px -236px;
+            top:175px;
+            left: 306px;
+
+        }
+        #myAd #myAd_txt3{
+            width: 510px;
+            height: 28px;
+            background-position: -2px -202px;
+            top: 58px;
+            left: 73px;
+        }
+        #myAd #myAd_surfboard {
+            width: 237px;
+            height: 62px;
+            background-position: -2px -233px;
+            top:110px;
+            left:390px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- markup goes here -->
+<a id="myAdLink" href="http://www.naver.com">
+    <div id="myAd">
+        <!--compress the png-8 -->
+        <div class="myAd_img" id="myAd_cloud"></div>
+        <!--photo of beach, transparent img-->
+        <div class="myAd_img" id="myAd_photo"></div>
+        <div id="myAd_txt1">Feeling stressed?</div>
+        <div id="myAd_txt2">You could be here!</div>
+        <div class="myAd_img" id="myAd_shadow"></div>
+        <div class="myAd_img" id="myAd_txt3"></div>
+        <div class="myAd_img" id="myAd_marker"></div>
+        <div class="myAd_img" id="myAd_surfboard"></div>
+    </div>
+</a>
+
+<script type="text/javascript" src="TweenMax.min.js"></script>
+<script type="text/javascript">
+    (function () {
+        var tl1 = new TimelineMax();
+//        target, time, {position, ease}
+//        ease visualizer at greensock
+//        from : 1st and callback .to(a, bounce)
+        tl1.from('#myAd_txt2', 1.3, {top:-100, ease:Power2.easeOut})
+            .to('#myAd_txt1', 1.3, {top:210, ease:Power2.easeOut}, '-=.1')
+            .from('#myAd_marker', 1.2, {top:-110, ease:Bounce.easeOut}, '-=.5')
+        ;
+    }());
+
+</script>
+</body>
+</html>
